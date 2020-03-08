@@ -37,10 +37,13 @@ return [
             'load_script' => true,
         ],
         'commands' => [
-            'db:model' => [
+            'gen:model' => [
                 'path' => 'app/Model',
                 'force_casts' => true,
                 'inheritance' => 'Model',
+                'uses' => '',
+                'refresh_fillable' => true,
+                'table_mapping' => [],
             ],
         ],
     ],
