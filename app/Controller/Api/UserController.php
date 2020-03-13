@@ -4,13 +4,12 @@ declare(strict_types=1);
 
 namespace App\Controller\Api;
 
-use Hyperf\HttpServer\Contract\RequestInterface;
-use Hyperf\HttpServer\Contract\ResponseInterface;
+use App\Controller\AbstractController;
 
-class UserController
+class UserController extends AbstractController
 {
-    public function index(RequestInterface $request, ResponseInterface $response)
+    public function index()
     {
-        return $response->raw('Hello Hyperf!');
+        return $this->response->raw('Hello Hyperf!');
     }
 }
