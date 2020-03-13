@@ -10,6 +10,15 @@ class UserController extends AbstractController
 {
     public function index()
     {
-        return $this->response->raw('Hello Hyperf!');
+        $data = [
+          'user' => 'user',
+          'password' => '123456',
+        ];
+        return $this->response->success($data);
+    }
+
+    public function login()
+    {
+        echo 'lgoin';
     }
 }
