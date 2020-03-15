@@ -41,5 +41,4 @@ abstract class AbstractController
     {
         $this->response = $container->get(Response::class);
     }
-
 }
