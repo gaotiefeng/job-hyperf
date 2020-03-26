@@ -31,8 +31,8 @@ class ApiUserTest extends HttpTestCase
     public function testApiUserLogin()
     {
         $res = $this->client->post('/user/login',[
-            'mobile' => '',
-            'password' => '',
+            'mobile' => '15904435047',
+            'password' => '123456',
         ]);
 
         return $this->assertSame(0, $res['code']);

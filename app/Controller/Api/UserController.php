@@ -15,9 +15,17 @@ namespace App\Controller\Api;
 use App\Constants\ErrorCode;
 use App\Controller\AbstractController;
 use App\Exception\BusinessException;
+use App\Services\Biz\Api\UserBiz;
+use Hyperf\Di\Annotation\Inject;
 
 class UserController extends AbstractController
 {
+    /**
+     * @Inject()
+     * @var UserBiz
+     */
+    protected $Biz;
+
     public function index()
     {
         $data = [
@@ -29,16 +37,21 @@ class UserController extends AbstractController
 
     public function login()
     {
-        $input = $this->request->all();
 
         $mobile = $this->request->input('mobile');
 
         $password = $this->request->input('password');
 
         if (empty($mobile)) {
-            throw  new BusinessException(ErrorCode::MOBILE_NO_EXIST);
+            throw  new BusinessException(ErrorCode::MOBILE_NULL);
         }
 
-        return $this->response->success();
+        if (empty($password)) {
+            throw new BusinessException(ErrorCode::PASSWORD_NO_EXIST);
+        }
+
+        $result = $this->Biz->login($mobile,$password);
+
+        return $this->response->success($result);
     }
 }
