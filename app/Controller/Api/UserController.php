@@ -12,7 +12,9 @@ declare(strict_types=1);
 
 namespace App\Controller\Api;
 
+use App\Constants\ErrorCode;
 use App\Controller\AbstractController;
+use App\Exception\BusinessException;
 
 class UserController extends AbstractController
 {
@@ -27,6 +29,16 @@ class UserController extends AbstractController
 
     public function login()
     {
-        echo 'lgoin';
+        $input = $this->request->all();
+
+        $mobile = $this->request->input('mobile');
+
+        $password = $this->request->input('password');
+
+        if (empty($mobile)) {
+            throw  new BusinessException(ErrorCode::MOBILE_NO_EXIST);
+        }
+
+        return $this->response->success();
     }
 }

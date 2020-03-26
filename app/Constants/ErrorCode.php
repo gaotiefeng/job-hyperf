@@ -24,4 +24,9 @@ class ErrorCode extends AbstractConstants
      * @Message("Server Error！")
      */
     const SERVER_ERROR = 500;
+
+    /**
+     * @Message("登陆失败")
+     */
+    const MOBILE_NO_EXIST = 100000;
 }
