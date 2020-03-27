@@ -26,6 +26,11 @@ class ErrorCode extends AbstractConstants
     const SERVER_ERROR = 500;
 
     /**
+     * @Message("token error！")
+     */
+    const NOT_TOKEN = 50000;
+
+    /**
      * @Message("用户不存在")
      */
     const MOBILE_NO_EXIST = 100000;

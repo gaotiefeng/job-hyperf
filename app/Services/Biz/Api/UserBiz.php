@@ -9,6 +9,7 @@ use App\Exception\BusinessException;
 use App\Model\User;
 use App\Services\Dao\UserDao;
 use App\Services\Services;
+use App\Utils\Token\UserAuth;
 use Hyperf\Di\Annotation\Inject;
 
 class UserBiz extends Services
@@ -29,6 +30,12 @@ class UserBiz extends Services
             throw new BusinessException(ErrorCode::PASSWORD_ERROR);
         }
 
-        return $user;
+        $token = UserAuth::instance()->init($user->id)->getToken();
+
+        $result['token'] = $token;
+        $result['mobile'] = $user->mobile;
+        $result['user_name'] = $user->user_name;
+
+        return $result;
     }
 }
