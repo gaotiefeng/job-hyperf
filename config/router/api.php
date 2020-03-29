@@ -20,4 +20,7 @@ Router::addServer('http', function () {
         Router::post('register', 'App\Controller\Api\UserController@register');
         Router::get('index', 'App\Controller\Api\UserController@index');
     });
+
+    Router::get('/company/index','App\Controller\Api\CompanyController@index');
+
 });

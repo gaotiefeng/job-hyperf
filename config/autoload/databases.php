@@ -38,9 +38,9 @@ return [
         ],
         'commands' => [
             'gen:model' => [
-                'path' => 'app/Model',
+                'path' => 'app/ModelHelper',
                 'force_casts' => true,
-                'inheritance' => 'Model',
+                'inheritance' => 'ModelHelper',
                 'uses' => '',
                 'refresh_fillable' => true,
                 'table_mapping' => [],
