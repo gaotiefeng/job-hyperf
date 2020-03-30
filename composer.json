@@ -41,7 +41,8 @@
         "hyperf/elasticsearch": "~1.1.0",
         "hyperf/tracer": "~1.1.0",
         "gaotiefeng/redis-application": "^1.0",
-        "firebase/php-jwt": "^5.2"
+        "firebase/php-jwt": "^5.2",
+        "hyperf/websocket-server": "^1.1"
     },
     "require-dev": {
         "swoft/swoole-ide-helper": "^4.2",

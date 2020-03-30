@@ -15,3 +15,7 @@ use Hyperf\HttpServer\Router\Router;
 include __DIR__ . '/router/api.php';
 
 Router::addRoute(['GET', 'POST', 'HEAD'], '/', 'App\Controller\IndexController@index');
+
+Router::addServer('ws', function () {
+    Router::get('/websocket', 'App\Controller\WebSocketController');
+});
