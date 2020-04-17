@@ -26,9 +26,7 @@ class CompanyBiz extends Services
         foreach ($items as $item) {
             $result['items'][] = CompanyFormatter::instance()->list($item);
         }
-        $redis = di()->get(Redis::class);
-
-        $redis->set('company',json_encode($result));
+        
         return $result;
     }
 }
