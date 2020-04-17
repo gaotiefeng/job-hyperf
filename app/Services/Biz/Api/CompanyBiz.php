@@ -8,6 +8,7 @@ use App\Services\Dao\CompanyDao;
 use App\Services\Formatter\CompanyFormatter;
 use App\Services\Services;
 use Hyperf\Di\Annotation\Inject;
+use Hyperf\Redis\Redis;
 
 class CompanyBiz extends Services
 {
@@ -25,7 +26,9 @@ class CompanyBiz extends Services
         foreach ($items as $item) {
             $result['items'][] = CompanyFormatter::instance()->list($item);
         }
+        $redis = di()->get(Redis::class);
 
+        $redis->set('company',json_encode($result));
         return $result;
     }
 }
