@@ -26,6 +26,7 @@ class WebSocketController implements OnMessageInterface, OnOpenInterface, OnClos
 
     public function onOpen(WebSocketServer $server, Request $request): void
     {
+        var_dump($request->getData());
         $server->push($request->fd, 'Opened');
     }
 }
