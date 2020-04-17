@@ -18,8 +18,8 @@ class CompanyController extends AbstractController
 
     public function index()
     {
-        $offset = $this->request->input('offset');
-        $limit = $this->request->input('limit');
+        $offset = $this->request->input('offset',0);
+        $limit = $this->request->input('limit',10);
 
         $result = $this->Biz->list($offset,$limit);
 
