@@ -23,4 +23,5 @@ Router::addServer('http', function () {
 
     Router::get('/company/index','App\Controller\Api\CompanyController@index');
 
+    Router::get('/context/index','App\Controller\ContextController@index');
 });

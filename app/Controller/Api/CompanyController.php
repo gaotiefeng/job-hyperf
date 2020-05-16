@@ -7,6 +7,7 @@ namespace App\Controller\Api;
 use App\Controller\AbstractController;
 use App\Services\Biz\Api\CompanyBiz;
 use Hyperf\Di\Annotation\Inject;
+use Hyperf\Utils\Context;
 
 class CompanyController extends AbstractController
 {
@@ -18,6 +19,7 @@ class CompanyController extends AbstractController
 
     public function index()
     {
+
         $offset = $this->request->input('offset',0);
         $limit = $this->request->input('limit',10);
 

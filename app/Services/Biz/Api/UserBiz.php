@@ -14,6 +14,7 @@ use Hyperf\Di\Annotation\Inject;
 
 class UserBiz extends Services
 {
+    public $biz = 3;
     /**
      * @Inject()
      * @var UserDao
