@@ -31,6 +31,11 @@ class IndexController extends AbstractController
         $fileName = rand(1000,9999).time();
         $file = BASE_PATH . '/public/1212.mp4';
         $dir = BASE_PATH . '/public/video/';
+
+        if (!is_dir($dir)) {
+            mkdir($dir, 0777, true);
+        } 
+
         $str = "ffmpeg -i ".$file." -y -f mjpeg -ss ".$time." -t 0.001 -s $size ".$dir.$fileName.'.jpg';
         exec($str,$out,$status);
         return $dir.$fileName.'.jpg';
