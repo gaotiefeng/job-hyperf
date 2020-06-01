@@ -12,6 +12,6 @@ class ContextTest extends HttpTestCase
     {
         $res = $this->client->get('/context/index');
 
-        var_dump($res);
+        $this->assertSame(0,0);
     }
 }
