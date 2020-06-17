@@ -18,11 +18,9 @@ class IndexController extends AbstractController
     {
         $user = $this->request->input('user', 'job');
         $method = $this->request->getMethod();
-        $url = $this->getVideoCover();
         return [
             'method' => $method,
             'message' => "Hello {$user}.",
-            'url' => $url,
         ];
     }
     public function getVideoCover($file='',$time=1,$dir='',$size='') {
@@ -34,7 +32,7 @@ class IndexController extends AbstractController
 
         if (!is_dir($dir)) {
             mkdir($dir, 0777, true);
-        } 
+        }
 
         $str = "ffmpeg -i ".$file." -y -f mjpeg -ss ".$time." -t 0.001 -s $size ".$dir.$fileName.'.jpg';
         exec($str,$out,$status);
