@@ -14,7 +14,7 @@ class ApiCompanyTest extends HttpTestCase
            'offset' => 0,
            'limit' => 10,
         ]);
-
+var_dump($res);
         $this->assertSame(0,$res['code']);
     }
 }
